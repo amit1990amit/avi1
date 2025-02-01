@@ -33,6 +33,7 @@ import { filterExistingVariants, generateAllAttributeCombinations, mapAttributes
 import SelectComponent from "../components/SelectComponent";
 import { colourOptions } from "../components/data";
 import AddProductButton from '../components/AddProductButton'
+import DropdownContainer from '../components/DropdownContainer'
 import { extractVariantLabels, mapAttributesToVariantsNew } from "../utils/data";
 
 // const fetchProduct = async (id: string) => {
@@ -57,7 +58,6 @@ const ProductPage: React.FC = () => {
     //     setToken(data.auth.access)
     //   },
 
-    // console.log('data is ', data);
 
 
     // console.log(' variants ', data?.data?.variants, data?.data?.attributes);
@@ -89,7 +89,6 @@ const ProductPage: React.FC = () => {
     // }, [data]);
 
 
-    console.log(' selectData ', selectData, colourOptions);
 
 
     // useEffect(() => {
@@ -122,7 +121,8 @@ const ProductPage: React.FC = () => {
                 <p className="product-description">{data.data.description}</p>
                 <p className="product-price">{`$${data.data.min_price}`}</p>
             </div>
-            <AddProductButton product={data.data}/>
+            {<DropdownContainer data={data.data} />}
+            {/* <AddProductButton product={data.data}/> */}
             {/* <SelectComponent data={selectData} /> */}
         </div>
 
