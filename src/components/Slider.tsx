@@ -31,9 +31,9 @@ const Slider = ({ data }: SliderProps) => {
             pagination={true}
             spaceBetween={50}
             slidesPerView={1}
-            onSlideChange={() => console.log('slide change')}
+            onSlideChange={() => {}}
             // pagination={{ clickable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
+            onSwiper={(swiper) => {}}
         >
             {data && data.length && data.map((item: any) => {
                 return <SwiperSlide key={item.title}>

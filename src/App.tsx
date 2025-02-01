@@ -31,6 +31,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from "react-query";
 import Home from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
+import { CartProvider } from "./store/CartContext"
+import Header from './components/Header'
 import './App.css';
 
 
@@ -39,12 +41,15 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
+      <CartProvider>
       <Router>
+        <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductPage />} />
         </Routes>
       </Router>
+      </CartProvider>
     </QueryClientProvider>
   );
 };

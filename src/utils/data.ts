@@ -81,10 +81,8 @@ export const extractVariantLabels = (data: any) => {
     return variants.map((variant: any) => {
       const labelMapping : any = {};
       const d = variant?.english_title
-      console.log(' english_title : ', variant.english_title);
       
       variant.labels.forEach(({ attribute_id, label_id }: any) => {
-        console.log(' attributes ', attributes);
         
         labelMapping[label_id] = { attribute_id, label_id, d };
       });

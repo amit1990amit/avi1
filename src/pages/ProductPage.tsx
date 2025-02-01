@@ -32,6 +32,8 @@ import Slider from "../components/Slider";
 import { filterExistingVariants, generateAllAttributeCombinations, mapAttributesToVariants } from "../utils/utils";
 import SelectComponent from "../components/SelectComponent";
 import { colourOptions } from "../components/data";
+import AddProductButton from '../components/AddProductButton'
+import DropdownContainer from '../components/DropdownContainer'
 import { extractVariantLabels, mapAttributesToVariantsNew } from "../utils/data";
 
 // const fetchProduct = async (id: string) => {
@@ -44,7 +46,6 @@ const ProductPage: React.FC = () => {
     const [selectData, setSelectData] = useState<any>(false);
     const { data, error, isSuccess, isLoading } = useQuery(["product", id], () => fetchProductById(id!),);
 
-    console.log(' Product ', data);
 
     useEffect(() => {
         if (isSuccess && data) {
@@ -57,7 +58,6 @@ const ProductPage: React.FC = () => {
     //     setToken(data.auth.access)
     //   },
 
-    // console.log('data is ', data);
 
 
     // console.log(' variants ', data?.data?.variants, data?.data?.attributes);
@@ -89,7 +89,6 @@ const ProductPage: React.FC = () => {
     // }, [data]);
 
 
-    console.log(' selectData ', selectData, colourOptions);
 
 
     // useEffect(() => {
@@ -122,6 +121,8 @@ const ProductPage: React.FC = () => {
                 <p className="product-description">{data.data.description}</p>
                 <p className="product-price">{`$${data.data.min_price}`}</p>
             </div>
+            {<DropdownContainer data={data.data} />}
+            {/* <AddProductButton product={data.data}/> */}
             {/* <SelectComponent data={selectData} /> */}
         </div>
 
